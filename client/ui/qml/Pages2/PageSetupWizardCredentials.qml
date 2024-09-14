@@ -13,12 +13,7 @@ import "../Controls2/TextTypes"
 PageType {
     id: root
 
-    defaultActiveFocusItem: hostname.textField
-
-    Item {
-        id: focusItem
-        KeyNavigation.tab: backButton
-    }
+    // defaultActiveFocusItem: hostname.textField
 
     BackButtonType {
         id: backButton
@@ -27,8 +22,6 @@ PageType {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.topMargin: 20
-
-        KeyNavigation.tab: hostname.textField
     }
 
     FlickableType {
@@ -67,8 +60,6 @@ PageType {
                 textField.onFocusChanged: {
                     textField.text = textField.text.replace(/^\s+|\s+$/g, '')
                 }
-
-                KeyNavigation.tab: username.textField
             }
 
             TextFieldWithHeaderType {
@@ -81,8 +72,6 @@ PageType {
                 textField.onFocusChanged: {
                     textField.text = textField.text.replace(/^\s+|\s+$/g, '')
                 }
-
-                KeyNavigation.tab: secretData.textField
             }
 
             TextFieldWithHeaderType {
@@ -103,8 +92,6 @@ PageType {
                 textField.onFocusChanged: {
                     textField.text = textField.text.replace(/^\s+|\s+$/g, '')
                 }
-
-                KeyNavigation.tab: continueButton
             }
 
             BasicButtonType {
@@ -114,8 +101,6 @@ PageType {
                 Layout.topMargin: 24
 
                 text: qsTr("Continue")
-
-                Keys.onTabPressed: lastItemTabClicked(focusItem)
 
                 clickedFunc: function() {
                     forceActiveFocus()
